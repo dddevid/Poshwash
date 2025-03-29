@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PoshWash ODI - Professional Car Washing Services</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+</head>
+<body>
+    <div class="background-bubbles">
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+        <div class="bg-bubble"></div>
+    </div>
+    
+    <header class="glass-effect">
+        <div class="container">
+            <div class="logo">
+                <img src="images/logo.png" alt="PoshWash ODI Logo">
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="nav-link" data-en="Home" data-ga="Baile">Home</a></li>
+                    <li><a href="#services" class="nav-link" data-en="Services" data-ga="Seirbhísí">Services</a></li>
+                    <li><a href="#pricing" class="nav-link" data-en="Pricing" data-ga="Praghsáil">Pricing</a></li>
+                    <li><a href="#gallery" class="nav-link" data-en="Gallery" data-ga="Gailearaí">Gallery</a></li>
+                    <li><a href="#location" class="nav-link" data-en="Location" data-ga="Suíomh">Location</a></li>
+                    <li><a href="#contact" class="nav-link" data-en="Contact" data-ga="Teagmháil">Contact</a></li>
+                </ul>
+            </nav>
+            <div class="language-switcher">
+                <button class="lang-btn active" data-lang="en">English</button>
+                <button class="lang-btn" data-lang="ga">Gaeilge</button>
+            </div>
+            <div class="mobile-menu-btn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="main-heading">
+                    <span class="text-primary" data-en="Premium" data-ga="Gairmiúil">Premium</span>
+                    <span class="text-secondary" data-en="Automotive Care Services" data-ga="Seirbhísí Níocháin Gluaisteán">Automotive Care Services</span>
+                </h1>
+                <p class="hero-text" data-en="Experience the excellence of our specialized car washing and valeting services at PoshWash ODI. We are committed to delivering meticulous care and exceptional results for your vehicle." data-ga="Bain taitneamh as seirbhísí níocháin agus valeting gluaisteán den scoth ag PoshWash ODI. Táimid bródúil as torthaí eisceachtúla a sholáthar do d'fheithicil.">Experience the excellence of our specialized car washing and valeting services at PoshWash ODI. We are committed to delivering meticulous care and exceptional results for your vehicle.</p>
+                <a href="#services" class="btn btn-primary" data-en="Our Services" data-ga="Ár Seirbhísí">Our Services</a>
+            </div>
+        </div>
+        <div class="hero-bubbles">
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+            <div class="bubble"></div>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2 class="section-heading">
+                <span class="text-primary" data-en="Our" data-ga="Ár">Our</span>
+                <span class="text-secondary" data-en="Services" data-ga="Seirbhísí">Services</span>
+            </h2>
+            <div class="services-grid">
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car"></i>
+                    </div>
+                    <h3 data-en="Standard Wash" data-ga="Níochán Caighdeánach">Standard Wash</h3>
+                    <p data-en="Comprehensive exterior cleaning including thorough wash and drying, exterior window cleaning, door jamb detailing, premium tyre shine application, and professional wheel treatment." data-ga="Níochán agus triomú, fuinneoga lasmuigh, dúnadh dorais, loinnir bonn, cóireáil rothaí.">Comprehensive exterior cleaning including thorough wash and drying, exterior window cleaning, door jamb detailing, premium tyre shine application, and professional wheel treatment.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 data-en="Gold Wash" data-ga="Níochán Óir">Gold Wash</h3>
+                    <p data-en="Enhanced cleaning service that includes all standard wash features plus meticulous interior and exterior window cleaning for crystal-clear visibility and a pristine appearance." data-ga="Mar an níochán caighdeánach móide fuinneoga taobh istigh agus amuigh.">Enhanced cleaning service that includes all standard wash features plus meticulous interior and exterior window cleaning for crystal-clear visibility and a pristine appearance.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fas fa-car-side"></i>
+                    </div>
+                    <h3 data-en="Standard Mini Valet" data-ga="Mini Valet Caighdeánach">Standard Mini Valet</h3>
+                    <p data-en="Comprehensive service including exterior wash and dry, door jamb detailing, premium tyre shine, professional wheel treatment, thorough interior vacuuming, and dashboard conditioning treatment." data-ga="Níochán agus triomú, dúnadh dorais, loinnir bonn, cóireáil rothaí, folús an interioir, cóireáil dash.">Comprehensive service including exterior wash and dry, door jamb detailing, premium tyre shine, professional wheel treatment, thorough interior vacuuming, and dashboard conditioning treatment.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <h3 data-en="Gold Mini Valet" data-ga="Mini Valet Óir">Gold Mini Valet</h3>
+                    <p data-en="*Director's favorite* As per standard mini valet plus bumper shine, as well as polishing the interior." data-ga="*Rogha an Stiúrthóra* Mar an mini valet caighdeánach móide loinnir maolaire, chomh maith le snasanna an interioir.">*Director's favorite* As per standard mini valet plus bumper shine, as well as polishing the interior.</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fas fa-medal"></i>
+                    </div>
+                    <h3 data-en="Gold Valet" data-ga="Valet Óir">Gold Valet</h3>
+                    <p data-en="Wash, vacuum and hand polish, inside and out (THE BEST!!!)." data-ga="Níochán, folús agus snasanna láimhe, taobh istigh agus amuigh (AN CEANN IS FEARR!!!).">Wash, vacuum and hand polish, inside and out (THE BEST!!!).</p>
+                </div>
+                <div class="service-card glass-card">
+                    <div class="service-icon">
+                        <i class="fas fa-crown"></i>
+                    </div>
+                    <h3 data-en="Full Works Valet" data-ga="Valet Oibreacha Iomlána">Full Works Valet</h3>
+                    <p data-en="The complete clean, wash the upholstery as well as hand polish." data-ga="An glanadh iomlán, nigh an t-úpholstery chomh maith le snasanna láimhe.">The complete clean, wash the upholstery as well as hand polish.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pricing" class="pricing">
+        <div class="container">
+            <h2 class="section-heading">
+                <span class="text-primary" data-en="Our" data-ga="Ár">Our</span>
+                <span class="text-secondary" data-en="Pricing" data-ga="Praghsáil">Pricing</span>
+            </h2>
+            <p class="section-subheading" data-en="ACCOUNT CUSTOMERS WELCOME" data-ga="FÁILTE ROIMH CHUSTAIMÉIRÍ CUNTAIS">ACCOUNT CUSTOMERS WELCOME</p>
+            
+            <div class="pricing-table">
+                <div class="pricing-header">
+                    <div class="pricing-service"></div>
+                    <div class="pricing-car" data-en="CARS" data-ga="GLUAISTEÁIN">CARS</div>
+                    <div class="pricing-suv" data-en="4X4'S/MPV" data-ga="4X4'S/MPV">4X4'S/MPV <span class="info-icon">i<span class="info-tooltip" data-en="4X4s are four-wheel drive vehicles. MPVs are Multi-Purpose Vehicles, also known as minivans." data-ga="Is feithiclí tiomána ceithre roth iad 4X4. Is Feithiclí Ilchuspóra iad MPVanna, ar a dtugtar minivans freisin.">4X4s are four-wheel drive vehicles. MPVs are Multi-Purpose Vehicles, also known as minivans.</span></span></div>
+                </div>
+                
+                <div class="pricing-row">
+                    <div class="pricing-service">
+                        <span class="service-number">1.</span>
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3 data-en="STANDARD WASH" data-ga="NÍOCHÁN CAIGHDEÁNACH">STANDARD WASH</h3>
+                        <p data-en="WASH AND DRYING, WINDOWS OUTSIDE, DOOR SHUTS, TYRE SHINE, WHEEL TREATMENT." data-ga="NÍOCHÁN AGUS TRIOMÚ, FUINNEOGA LASMUIGH, DÚNADH DORAIS, LOINNIR BONN, CÓIREÁIL ROTHAÍ.">WASH AND DRYING, WINDOWS OUTSIDE, DOOR SHUTS, TYRE SHINE, WHEEL TREATMENT.</p>
+                    </div>
+                    <div class="pricing-car">€15</div>
+                    <div class="pricing-suv">€20</div>
+                </div>
+                
+                <div class="pricing-row">
+                    <div class="pricing-service">
+                        <span class="service-number">2.</span>
+                        <div class="service-icon">
+                            <i class="fas fa-tint"></i>
+                        </div>
+                        <h3 data-en="GOLD WASH" data-ga="NÍOCHÁN ÓIR">GOLD WASH</h3>
+                        <p data-en="AS PER THE STANDARD WASH PLUS WINDOWS INSIDE AND OUT." data-ga="MAR AN NÍOCHÁN CAIGHDEÁNACH MÓIDE FUINNEOGA TAOBH ISTIGH AGUS AMUIGH.">AS PER THE STANDARD WASH <span class="highlight">PLUS</span> WINDOWS INSIDE AND OUT.</p>
+                    </div>
+                    <div class="pricing-car">€25</div>
+                    <div class="pricing-suv">€30</div>
+                </div>
+                
+                <div class="pricing-row">
+                    <div class="pricing-service">
+                        <span class="service-number">3.</span>
+                        <div class="service-icon">
+                            <i class="fas fa-car-side"></i>
+                        </div>
+                        <h3 data-en="STANDARD MINI VALET" data-ga="MINI VALET CAIGHDEÁNACH">STANDARD MINI VALET</h3>
+                        <p data-en="WASH AND DRY, DOOR SHUTS, TYRE SHINE, WHEEL TREATMENT, VACUUM THE INTERIOR, DASH TREATMENT." data-ga="NÍOCHÁN AGUS TRIOMÚ, DÚNADH DORAIS, LOINNIR BONN, CÓIREÁIL ROTHAÍ, FOLÚS AN INTERIOIR, CÓIREÁIL DASH.">WASH AND DRY, DOOR SHUTS, TYRE SHINE, WHEEL TREATMENT, VACUUM THE INTERIOR, DASH TREATMENT.</p>
+                    </div>
+                    <div class="pricing-car">€35</div>
+                    <div class="pricing-suv">€40</div>
+                </div>
+                
+                <div class="pricing-row">
+                    <div class="pricing-service">
+                        <span class="service-number">4.</span>
+                        <div class="service-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <h3 data-en="GOLD MINI VALET" data-ga="MINI VALET ÓIR">GOLD MINI VALET</h3>
+                        <p data-en="*(DIRECTORS FAVORITE)* AS PER STANDARD MINI VALET PLUS BUMPER SHINE, AS WELL AS POLISHING THE INTERIOR." data-ga="*(ROGHA AN STIÚRTHÓRA)* MAR AN MINI VALET CAIGHDEÁNACH MÓIDE LOINNIR MAOLAIRE, CHOMH MAITH LE SNASANNA AN INTERIOIR.">*(DIRECTORS FAVORITE)* AS PER STANDARD MINI VALET <span class="highlight">PLUS</span> BUMPER SHINE, AS WELL AS POLISHING THE INTERIOR.</p>
+                    </div>
+                    <div class="pricing-car">€45</div>
+                    <div class="pricing-suv">€55</div>
+                </div>
+                
+                <div class="pricing-row">
+                    <div class="pricing-service">
+                        <span class="service-number">5.</span>
+                        <div class="service-icon">
+                            <i class="fas fa-medal"></i>
+                        </div>
+                        <h3 data-en="GOLD VALET" data-ga="VALET ÓIR">GOLD VALET</h3>
+                        <p data-en="WASH, VACUUM AND HAND POLISH, INSIDE AND OUT (THE BEST!!!)." data-ga="NÍOCHÁN, FOLÚS AGUS SNASANNA LÁIMHE, TAOBH ISTIGH AGUS AMUIGH (AN CEANN IS FEARR!!!).">WASH, VACUUM AND HAND POLISH, INSIDE AND OUT (THE BEST!!!).</p>
+                    </div>
+                    <div class="pricing-car">€65</div>
+                    <div class="pricing-suv">€75</div>
+                </div>
+                
+                <div class="pricing-row">
+                    <div class="pricing-service">
+                        <span class="service-number">6.</span>
+                        <div class="service-icon">
+                            <i class="fas fa-crown"></i>
+                        </div>
+                        <h3 data-en="FULL WORKS VALET" data-ga="VALET OIBREACHA IOMLÁNA">FULL WORKS VALET</h3>
+                        <p data-en="THE COMPLETE CLEAN, WASH THE UPHOLSTERY AS WELL AS HAND POLISH." data-ga="AN GLANADH IOMLÁN, NIGH AN T-ÚPHOLSTERY CHOMH MAITH LE SNASANNA LÁIMHE.">THE COMPLETE CLEAN, WASH THE UPHOLSTERY AS WELL AS HAND POLISH.</p>
+                    </div>
+                    <div class="pricing-car">€110</div>
+                    <div class="pricing-suv">€130</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="gallery">
+        <div class="container">
+            <h2 class="section-heading">
+                <span class="text-primary" data-en="Our" data-ga="Ár">Our</span>
+                <span class="text-secondary" data-en="Gallery" data-ga="Gailearaí">Gallery</span>
+            </h2>
+            <div class="gallery-grid">
+                <!-- Gallery images will be dynamically loaded from the gallery folder -->
+            </div>
+        </div>
+    </section>
+
+    <section id="location" class="location">
+        <div class="container">
+            <h2 class="section-heading">
+                <span class="text-primary" data-en="Our" data-ga="Ár">Our</span>
+                <span class="text-secondary" data-en="Location" data-ga="Suíomh">Location</span>
+            </h2>
+            <div class="location-info glass-card">
+                <div class="address">
+                    <h3 data-en="Address" data-ga="Seoladh">Address</h3>
+                    <p data-en="8PXQ+WV Dublin" data-ga="8PXQ+WV Baile Átha Cliath">Sandyford IND Estate, D18TX38, Dublin</p>
+                    
+                    <h3 data-en="Opening Hours" data-ga="Uaireanta Oscailte">Opening Hours</h3>
+                    <p>
+                        <span data-en="MONDAY - SATURDAY" data-ga="LUAN - SATHARN">MONDAY - SATURDAY</span>: 9AM-6PM<br>
+                        <span data-en="SUNDAY" data-ga="DOMHNACH">SUNDAY</span>: 10AM-5PM
+                    </p>
+                </div>
+                <div class="map">
+                    <div id="mapid" style="width: 100%; height: 300px;"></div>
+                    <a href="https://www.google.it/maps/place/Sandyford,+Dublino,+D18+TX38,+Irlanda/@53.2754797,-6.213417,68m/data=!3m1!1e3!4m6!3m5!1s0x48670908fb5d38f7:0x12ac42680fef979a!8m2!3d53.2754605!4d-6.2132627!16s%2Fg%2F11c5wmlfsx?entry=ttu&g_ep=EgoyMDI1MDMyNS4xIKXMDSoASAFQAw%3D%3D" 
+                       class="btn btn-primary map-btn" 
+                       target="_blank"
+                       data-en="Open in Google Maps" 
+                       data-ga="Oscail i Google Maps">Open in Google Maps</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="testimonials" class="testimonials">
+    <div class="container">
+        <h2 class="section-heading">
+            <span class="text-primary" data-en="Customer" data-ga="Custaiméir">Customer</span>
+            <span class="text-secondary" data-en="Testimonials" data-ga="Teistiméireachtaí">Testimonials</span>
+        </h2>
+        <div class="testimonials-carousel">
+            <div class="testimonial-card glass-card">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjU1qwolZXLLKFwUSudO3YxGg7j7MjecqnnNRal9Oz9ip99bdgs=w800-h800-p-rp-mo-br100" alt="Stephen Kelly" class="testimonial-image">
+                <h3>Stephen Kelly</h3>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"I have never been disappointed with the level of service no matter how dirty the car, the lads treat it like it's their own car, and you leave them with a smile on your face 😀"</p>
+                <a href="https://g.co/kgs/MjgRUqQ" target="_blank" class="review-link" data-en="Read on Google" data-ga="Léigh ar Google">Read on Google</a>
+            </div>
+
+            <div class="testimonial-card glass-card">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjU_f5N2sBXfFzMgq-IkK_LiJfh-iYfFZWNQQucksqafDWAL7GyqUA=w800-h800-p-rp-mo-ba3-br100" alt="Cianán Power" class="testimonial-image">
+                <h3>Cianán Power</h3>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Very good price here and was very convenient location for leaving car off with them while I worked! Happy with valet job."</p>
+                <a href="https://g.co/kgs/wGYHTKk" target="_blank" class="review-link" data-en="Read on Google" data-ga="Léigh ar Google">Read on Google</a>
+            </div>
+
+            <div class="testimonial-card glass-card">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjX2RQhQBdMrHVIBGtWv8Cvdhnv9ATbP8eIadsqswSVPrFoJDhQ=w800-h800-p-rp-mo-ba4-br100" alt="Phil Doak" class="testimonial-image">
+                <h3>Phil Doak</h3>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"By far the best car wash around- I am careful about how I was my car and they were very good with it using hand only. Very friendly and trustworthy you could leave car with them. Thanks and see you again"</p>
+                <a href="https://maps.app.goo.gl/EizZHWhMPaVoPqiK6" target="_blank" class="review-link" data-en="Read on Google" data-ga="Léigh ar Google">Read on Google</a>
+            </div>
+            <div class="testimonial-card glass-card">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjU8ehEI9kujWk58HtiNQLt6AEZRVqxVo_YAV_dlVcCQsMlWurvo=w800-h800-p-rp-mo-ba3-br100" alt="Yixin Moey" class="testimonial-image">
+                <h3>Yixin Moey</h3>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Top notch service and friendly staffs. Car sparkling clean, very happy with the result"</p>
+                <a href="https://maps.app.goo.gl/XKWcaEATkLYz9U8r5" target="_blank" class="review-link" data-en="Read on Google" data-ga="Léigh ar Google">Read on Google</a>
+            </div>
+            <div class="testimonial-card glass-card">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjURsgxPN6l4TeyXvr2LQnmcLAY9mqzyu38-xy8846diw52leqsB=w800-h800-p-rp-mo-br100" alt="Yvonne Freeley" class="testimonial-image">
+                <h3>Yvonne Freeley</h3>
+                <div class="stars">★★★★★</div>
+                <p class="testimonial-text">"Very happy with the job done by the guys, car was like new both inside and out . Professional service ,  very efficient and a reasonable price"</p>
+                <a href="https://maps.app.goo.gl/rGMG1AaTszK4Cou88" target="_blank" class="review-link" data-en="Read on Google" data-ga="Léigh ar Google">Read on Google</a>
+            </div>
+            <div class="testimonial-card glass-card">
+                <img src="https://lh3.googleusercontent.com/a-/ALV-UjXDFlpWTFNDIhR2P9nvTgQ3L8IUdXgljILbaHU0qo31YXiLTlPX=w800-h800-p-rp-mo-br100" alt="Linesh Mathew Kappamammoottil" class="testimonial-image">
+                <h3>Linesh Mathew Kappamammoottil</h3>
+                <div class="stars">★★★★☆</div>
+                <p class="testimonial-text">"Today I visited.very good service also price very cheaper than other place. I recemended this car wash centre."</p>
+                <a href="https://maps.app.goo.gl/2V3KpJb9VzQaEEBJ8" target="_blank" class="review-link" data-en="Read on Google" data-ga="Léigh ar Google">Read on Google</a>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+    <div class="container">
+        <h2 class="section-heading">
+            <span class="text-primary" data-en="Get in Touch" data-ga="Déan Teagmháil">Get in Touch</span>
+            <span class="text-secondary" data-en="Contact Us" data-ga="Déan Teagmháil Linn">Contact Us</span>
+        </h2>
+        <div class="contact-wrapper">
+            <div class="contact-info glass-card">
+                <h3 data-en="Contact Information" data-ga="Eolas Teagmhála">Contact Information</h3>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h4 data-en="Phone" data-ga="Guthán">Phone</h4>
+                            <p><a href="tel:+353852773891">+353 85 277 3891</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h4>WhatsApp</h4>
+                            <p><a href="https://wa.me/353852773891">+353 85 277 3891</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <div>
+                            <h4 data-en="Email" data-ga="Ríomhphost">Email</h4>
+                            <p><a href="mailto:Kristjansokoli84@gmail.com">Kristjansokoli84@gmail.com</a></p>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h4 data-en="Location" data-ga="Suíomh">Location</h4>
+                            <p>Sandyford Industrial Estate, Dublin 18, D18TX38</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-social">
+                    <h4 data-en="Follow Us" data-ga="Lean Muid">Follow Us</h4>
+                    <div class="social-icons">
+                        <a href="https://wa.me/353852773891" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.instagram.com/poshwash_odi_sandyford" target="_blank"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100082912134830" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@poshwashodi" target="_blank"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-form glass-card">
+                <h3 data-en="Send us a Message" data-ga="Seol Teachtaireacht">Send us a Message</h3>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name" data-en="Full Name" data-ga="Ainm Iomlán">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="subject" data-en="Subject" data-ga="Ábhar">Subject</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message" data-en="Message" data-ga="Teachtaireacht">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <small class="gdpr-notice" data-en="By submitting this form, you agree to our Privacy Policy and consent to the processing of your personal data." data-ga="Trí an fhoirm seo a chur isteach, aontaíonn tú lenár bPolasaí Príobháideachta agus toilíonn tú le próiseáil do shonraí pearsanta.">
+                            By submitting this form, you agree to our Privacy Policy and consent to the processing of your personal data.
+                        </small>
+                    </div>
+                    <button type="submit" class="btn btn-primary" data-en="Send Message" data-ga="Seol Teachtaireacht">
+                        Send Message
+                    </button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <img src="images/logo.png" alt="PoshWash ODI Logo">
+                    <p data-en="Professional Car Washing Services" data-ga="Seirbhísí Níocháin Gluaisteán Gairmiúil">Professional Car Washing Services</p>
+                </div>
+                <div class="footer-links">
+                    <h3 data-en="Quick Links" data-ga="Naisc Thapa">Quick Links</h3>
+                    <ul>
+                        <li><a href="#home" data-en="Home" data-ga="Baile">Home</a></li>
+                        <li><a href="#services" data-en="Services" data-ga="Seirbhísí">Services</a></li>
+                        <li><a href="#pricing" data-en="Pricing" data-ga="Praghsáil">Pricing</a></li>
+                        <li><a href="#gallery" data-en="Gallery" data-ga="Gailearaí">Gallery</a></li>
+                        <li><a href="#location" data-en="Location" data-ga="Suíomh">Location</a></li>
+                        <li><a href="#contact" data-en="Contact" data-ga="Teagmháil">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h3 data-en="Contact Us" data-ga="Déan Teagmháil Linn">Contact Us</h3>
+                    <p><i class="fas fa-phone"></i> <a href="tel:0838403823">083 840 3823</a> / <a href="tel:0852773891">085 277 3891</a></p>
+                    <p><i class="fas fa-map-marker-alt"></i> <span data-en="SANDYFORD IND ESTATE, D18TX38" data-ga="EASTÁT TIONSCLAÍOCH ÁTHA AN GHAINIMH, D18TX38">SANDYFORD IND ESTATE, D18TX38</span></p>
+                    <div class="social-icons">
+                        <a href="https://www.instagram.com/poshwash_odi_sandyford" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.facebook.com/profile.php?id=100082912134830" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.tiktok.com/@poshwashodi" target="_blank" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="https://wa.me/353852773891" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p data-en="THANK YOU FOR COMING HOPE TO SEE YOU AGAIN." data-ga="GO RAIBH MAITH AGAT AS TEACHT TÁ SÚIL AGAINN TÚ A FHEICEÁIL ARÍS.">THANK YOU FOR COMING HOPE TO SEE YOU AGAIN.</p>
+                <p class="copyright">&copy; <span id="year"></span> PoshWash ODI. <span data-en="All Rights Reserved." data-ga="Gach Ceart ar Cosaint.">All Rights Reserved.</span></p>
+                <p><a href="privacy-policy.html" data-en="Privacy Policy" data-ga="Polasaí Príobháideachta">Privacy Policy</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
