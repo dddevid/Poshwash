@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Sitemap: https://poshwashodi.com/sitemap.xml
+
+Disallow: /css/
+Disallow: /js/
+Disallow: /images/gallery/
