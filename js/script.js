@@ -1,4 +1,27 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Function to convert text between asterisks to bold
+    function convertAsterisksToBold() {
+        // Get all elements that might contain text
+        const textElements = document.querySelectorAll('p, h1, h2, h3, h4, h5, h6, span, div.testimonial-text');
+        
+        textElements.forEach(element => {
+            // Skip elements that shouldn't be processed
+            if (element.classList.contains('info-tooltip') || element.tagName === 'SCRIPT') return;
+            
+            // Get the HTML content
+            let html = element.innerHTML;
+            
+            // Replace text between asterisks with bold text, but only if there are matching pairs
+            html = html.replace(/\*(.*?)\*/g, '<strong>$1</strong>');
+            
+            // Update the HTML content
+            element.innerHTML = html;
+        });
+    }
+    
+    // Call the function to convert asterisks to bold
+    convertAsterisksToBold();
+    
     // Mobile menu functionality
     const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
     const header = document.querySelector('header');
@@ -31,6 +54,31 @@ document.addEventListener('DOMContentLoaded', function() {
             mobileNav.classList.remove('active');
             mobileMenuBtn.classList.remove('active');
             document.body.style.overflow = ''; // Re-enable scrolling
+        });
+    });
+
+    // Info tooltip positioning functionality
+    const infoIcons = document.querySelectorAll('.info-icon');
+    
+    infoIcons.forEach(icon => {
+        const tooltip = icon.querySelector('.info-tooltip');
+        
+        icon.addEventListener('mouseenter', function(e) {
+            // Get the position of the info icon
+            const iconRect = icon.getBoundingClientRect();
+            
+            // Position the tooltip above the icon
+            tooltip.style.top = (window.scrollY + iconRect.top - tooltip.offsetHeight - 10) + 'px';
+            tooltip.style.left = (window.scrollX + iconRect.left + (iconRect.width / 2)) + 'px';
+            
+            // Show the tooltip by adding a class
+            tooltip.classList.add('visible');
+        });
+        
+        icon.addEventListener('mouseleave', function(e) {
+            // Hide the tooltip when mouse leaves
+            const tooltip = icon.querySelector('.info-tooltip');
+            tooltip.classList.remove('visible');
         });
     });
 
@@ -294,10 +342,13 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Initialize the map
-    var map = L.map('mapid').setView([53.2968834, -6.2108245], 16);
+    var map = L.map('mapid', {
+        attributionControl: false  // Remove attribution control completely
+    }).setView([53.2968834, -6.2108245], 16);
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        attribution: '© OpenStreetMap contributors'
+        maxZoom: 19,
+        attribution: ''  // Empty attribution text
     }).addTo(map);
 
     // Add a marker

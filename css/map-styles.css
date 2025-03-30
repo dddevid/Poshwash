@@ -1,0 +1,77 @@
+/* Custom Map Styling */
+
+/* Map container styling */
+#mapid {
+    width: 100%;
+    height: 300px;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Fix the position of the Google Maps button */
+.map {
+    position: relative;
+}
+
+.map-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 500;
+    background: var(--primary-color);
+    color: var(--text-color);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-weight: 600;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    width: auto;
+    min-width: 200px;
+}
+
+.map-btn:hover {
+    background: var(--dark-green);
+    transform: translateX(-50%) translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Custom styling for Leaflet controls */
+.leaflet-control-zoom {
+    border: none !important;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2) !important;
+}
+
+.leaflet-control-zoom a {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+    border: none !important;
+    width: 32px !important;
+    height: 32px !important;
+    line-height: 32px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+    transition: all 0.2s ease !important;
+}
+
+.leaflet-control-zoom a:hover {
+    background-color: var(--dark-green) !important;
+    color: white !important;
+}
+
+.leaflet-control-zoom-in {
+    border-radius: 4px 4px 0 0 !important;
+}
+
+.leaflet-control-zoom-out {
+    border-radius: 0 0 4px 4px !important;
+}
+
+/* Hide attribution */
+.leaflet-control-attribution {
+    display: none !important;
+}

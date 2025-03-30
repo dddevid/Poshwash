@@ -610,8 +610,8 @@ nav ul li a.active::after {
 }
 
 .info-tooltip {
-    position: absolute;
-    bottom: 100%;
+    position: fixed;
+    bottom: auto;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--secondary-color);
@@ -627,7 +627,12 @@ nav ul li a.active::after {
     visibility: hidden;
     transition: all 0.3s ease;
     pointer-events: none;
-    z-index: 10;
+    z-index: 9999;
+}
+
+.info-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .info-tooltip::after {
@@ -644,7 +649,8 @@ nav ul li a.active::after {
 .info-icon:hover .info-tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: 130%;
+    bottom: auto;
+    top: -45px;
 }
 
 .pricing-suv {
@@ -667,8 +673,8 @@ nav ul li a.active::after {
 }
 
 .info-tooltip {
-    position: absolute;
-    bottom: 100%;
+    position: fixed;
+    bottom: auto;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--secondary-color);
@@ -684,7 +690,12 @@ nav ul li a.active::after {
     visibility: hidden;
     transition: all 0.3s ease;
     pointer-events: none;
-    z-index: 10;
+    z-index: 9999;
+}
+
+.info-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .info-tooltip::after {
@@ -701,7 +712,8 @@ nav ul li a.active::after {
 .info-icon:hover .info-tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: 130%;
+    bottom: auto;
+    top: -45px;
 }
 
 /* Remove the circular background for pricing headers */
@@ -857,7 +869,7 @@ nav ul li a.active::after {
 /* Location Section */
 .location {
     padding: 100px 0;
-    background: linear-gradient(180deg, var(--primary-color) 0%, var(--dark-green) 100%);
+    background: var(--primary-color);
 }
 
 .location-info {
@@ -1666,8 +1678,8 @@ footer {
 }
 
 .info-tooltip {
-    position: absolute;
-    bottom: 100%;
+    position: fixed;
+    bottom: auto;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--secondary-color);
@@ -1683,7 +1695,12 @@ footer {
     visibility: hidden;
     transition: all 0.3s ease;
     pointer-events: none;
-    z-index: 10;
+    z-index: 9999;
+}
+
+.info-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .info-tooltip::after {
@@ -1700,7 +1717,8 @@ footer {
 .info-icon:hover .info-tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: 130%;
+    bottom: auto;
+    top: -45px;
 }
 
 .pricing-suv {
@@ -1723,8 +1741,8 @@ footer {
 }
 
 .info-tooltip {
-    position: absolute;
-    bottom: 100%;
+    position: fixed;
+    bottom: auto;
     left: 50%;
     transform: translateX(-50%);
     background-color: var(--secondary-color);
@@ -1740,7 +1758,12 @@ footer {
     visibility: hidden;
     transition: all 0.3s ease;
     pointer-events: none;
-    z-index: 10;
+    z-index: 9999;
+}
+
+.info-tooltip.visible {
+    opacity: 1;
+    visibility: visible;
 }
 
 .info-tooltip::after {
@@ -1757,7 +1780,8 @@ footer {
 .info-icon:hover .info-tooltip {
     opacity: 1;
     visibility: visible;
-    bottom: 130%;
+    bottom: auto;
+    top: -45px;
 }
 
 /* Remove the circular background for pricing headers */
@@ -1913,7 +1937,7 @@ footer {
 /* Location Section */
 .location {
     padding: 100px 0;
-    background: linear-gradient(180deg, var(--primary-color) 0%, var(--dark-green) 100%);
+    background: var(--primary-color);
 }
 
 .location-info {
@@ -2635,7 +2659,7 @@ footer {
     padding: 100px 0;
     perspective: 1000px;
     overflow: hidden;
-    background: linear-gradient(180deg, var(--primary-color) 0%, var(--dark-green) 100%);
+    background: var(--primary-color);
 }
 
 .testimonials-carousel {
@@ -2644,6 +2668,12 @@ footer {
     padding: 40px 20px;
     animation: scrollTestimonials 30s linear infinite;
     transform-style: preserve-3d;
+    width: max-content; /* Ensure all cards are in a single row */
+}
+
+/* Pause animation on hover */
+.testimonials-carousel:hover {
+    animation-play-state: paused;
 }
 
 .testimonial-card {
@@ -2705,7 +2735,7 @@ footer {
         transform: translateX(0);
     }
     100% {
-        transform: translateX(calc(-350px * 3 - 90px));
+        transform: translateX(calc(-350px * 6 - 180px)); /* Adjusted for smoother looping */
     }
 }
 
@@ -2735,7 +2765,7 @@ footer {
             transform: translateX(0);
         }
         100% {
-            transform: translateX(calc(-300px * 3 - 60px));
+            transform: translateX(calc(-300px * 6 - 120px)); /* Adjusted for smoother looping */
         }
     }
 }
