@@ -5,10 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PoshWash ODI - Professional Car Washing Services in Dublin</title>
     
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Professional car washing and valeting services in Sandyford, Dublin. Premium automotive care with meticulous attention to detail. Book your car wash today!">
-    <meta name="keywords" content="car wash, valeting, Dublin, Sandyford, automotive care, car cleaning, professional car wash">
+    <!-- Enhanced SEO Meta Tags -->
+    <meta name="description" content="Premium car washing and valeting services in Sandyford, Dublin. Professional automotive care with meticulous attention to detail. Best car wash in Dublin with competitive prices. Book your car wash today!">
+    <meta name="keywords" content="car wash Dublin, valeting services Dublin, Sandyford car wash, premium car cleaning, professional car wash, automotive detailing, car valeting near me, best car wash Dublin, car cleaning services, eco-friendly car wash">
     <meta name="author" content="PoshWash ODI">
+    
+    <!-- Anti-scraping meta tags -->
+    <meta name="robots" content="index, follow, noarchive, noimageindex">
+    <meta name="googlebot" content="index, follow, noarchive, noimageindex">
+    <meta name="revisit-after" content="7 days">
+    <meta name="copyright" content="PoshWash ODI">
+    <meta name="referrer" content="no-referrer-when-downgrade">
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
@@ -27,11 +34,10 @@
     <!-- PWA Support -->
     <link rel="manifest" href="/manifest.json">
     <meta name="theme-color" content="#00bd4f">
-    <link rel="apple-touch-icon" href="/images/icons/icon-192x192.png">
+    <link rel="apple-touch-icon" href="/images/favicon.png">
 
     <!-- Favicon -->
-    <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png">
-    <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png">
+    <link rel="icon" type="image/png" href="/images/favicon.png">
     
     <link rel="stylesheet" href="css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,6 +46,51 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin=""/>
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+    
+    <!-- SEO Improvements: Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "PoshWash ODI",
+      "image": "https://poshwashodi.com/images/logo.png",
+      "@id": "https://poshwashodi.com",
+      "url": "https://poshwashodi.com",
+      "telephone": "+353 87 338 3838",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sandyford IND Estate",
+        "addressLocality": "Dublin",
+        "postalCode": "D18TX38",
+        "addressCountry": "IE"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 53.2968834,
+        "longitude": -6.2108245
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+          "opens": "09:00",
+          "closes": "18:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": "Sunday",
+          "opens": "10:00",
+          "closes": "17:00"
+        }
+      ],
+      "priceRange": "€€",
+      "description": "Professional car washing and valeting services in Sandyford, Dublin. Premium automotive care with meticulous attention to detail.",
+      "sameAs": [
+        "https://www.facebook.com/poshwashodi",
+        "https://www.instagram.com/poshwashodi"
+      ]
+    }
+    </script>
 </head>
 <body>
     <div class="background-bubbles">
@@ -461,5 +512,7 @@
     </footer>
 
     <script src="js/script.js"></script>
+    <!-- Image Protection Script -->
+    <script src="js/image-protection.js"></script>
 </body>
 </html>

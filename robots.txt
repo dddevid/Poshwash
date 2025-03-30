@@ -1,7 +1,41 @@
-User-agent: *
+# Allow Google bots to crawl the site
+User-agent: Googlebot
 Allow: /
-Sitemap: https://poshwashodi.com/sitemap.xml
 
+User-agent: Googlebot-News
+Allow: /
+
+User-agent: Googlebot-Mobile
+Allow: /
+
+# General rules for other bots
+User-agent: *
+Disallow: /images/
 Disallow: /css/
 Disallow: /js/
-Disallow: /images/gallery/
+Crawl-delay: 10
+
+# Only allow specific pages to be indexed
+Allow: /index.html
+Allow: /privacy-policy.html
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: ScraperBot
+Disallow: /
+
+User-agent: YandexBot
+Disallow: /
+
+User-agent: Baiduspider
+Disallow: /
+
+# Sitemap location
+Sitemap: https://poshwashodi.com/sitemap.xml

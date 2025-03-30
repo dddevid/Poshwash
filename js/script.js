@@ -110,6 +110,71 @@ document.addEventListener('DOMContentLoaded', function() {
         updateLightboxImage();
     });
     
+    // Enhanced touch swipe functionality for mobile devices
+    let touchStartX = 0;
+    let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
+    
+    lightbox.addEventListener('touchstart', (e) => {
+        touchStartX = e.changedTouches[0].screenX;
+        touchStartY = e.changedTouches[0].screenY;
+    }, false);
+    
+    lightbox.addEventListener('touchend', (e) => {
+        touchEndX = e.changedTouches[0].screenX;
+        touchEndY = e.changedTouches[0].screenY;
+        handleSwipe();
+    }, false);
+    
+    function handleSwipe() {
+        // Calculate horizontal and vertical distance
+        const horizontalDistance = touchEndX - touchStartX;
+        const verticalDistance = touchEndY - touchStartY;
+        
+        // Only register as horizontal swipe if horizontal movement is greater than vertical
+        if (Math.abs(horizontalDistance) > Math.abs(verticalDistance)) {
+            // Detect swipe direction (minimum 30px movement to count as a swipe - reduced for better responsiveness)
+            if (horizontalDistance < -30) {
+                // Swipe left - go to next image
+                lightboxNext.click();
+            }
+            if (horizontalDistance > 30) {
+                // Swipe right - go to previous image
+                lightboxPrev.click();
+            }
+        }
+    }
+    
+    // Add swipe functionality to gallery grid for mobile users
+    if (galleryGrid) {
+        galleryGrid.addEventListener('touchstart', (e) => {
+            touchStartX = e.changedTouches[0].screenX;
+            touchStartY = e.changedTouches[0].screenY;
+        }, false);
+        
+        galleryGrid.addEventListener('touchend', (e) => {
+            touchEndX = e.changedTouches[0].screenX;
+            touchEndY = e.changedTouches[0].screenY;
+            handleGallerySwipe();
+        }, false);
+    }
+    
+    function handleGallerySwipe() {
+        // Calculate horizontal and vertical distance
+        const horizontalDistance = touchEndX - touchStartX;
+        const verticalDistance = touchEndY - touchStartY;
+        
+        // Only register as horizontal swipe if horizontal movement is greater than vertical
+        if (Math.abs(horizontalDistance) > Math.abs(verticalDistance) && Math.abs(horizontalDistance) > 50) {
+            // Scroll the gallery grid horizontally
+            galleryGrid.scrollBy({
+                left: -horizontalDistance * 2,
+                behavior: 'smooth'
+            });
+        }
+    }
+    
     // Close lightbox with escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape' && lightbox.classList.contains('active')) {
