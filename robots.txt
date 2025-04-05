@@ -13,7 +13,6 @@ User-agent: *
 Disallow: /images/
 Disallow: /css/
 Disallow: /js/
-Crawl-delay: 10
 
 # Only allow specific pages to be indexed
 Allow: /index.html
