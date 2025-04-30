@@ -1,117 +1,55 @@
 /**
  * Image Protection Script
- * Prevents easy copying of testimonial profile images and gallery images
- * Enhanced anti-scraping protection
+ * Previene il copia/incolla delle immagini nella galleria
+ * Protezione anti-scraping migliorata
  */
 
 document.addEventListener('DOMContentLoaded', function() {
-    // Protect testimonial profile images
-    protectTestimonialImages();
-    
-    // Protect gallery images
+    // Proteggi solo le immagini della galleria
     protectGalleryImages();
     
-    // Add global anti-scraping protection
+    // Aggiungi protezione anti-scraping con selezione testo abilitata
     addGlobalProtection();
 });
 
 /**
- * Protects testimonial profile images from being copied or dragged
- */
-function protectTestimonialImages() {
-    const testimonialImages = document.querySelectorAll('.testimonial-image');
-    
-    testimonialImages.forEach(img => {
-        // Prevent right-click
-        img.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Prevent drag
-        img.addEventListener('dragstart', function(e) {
-            e.preventDefault();
-            return false;
-        });
-        
-        // Add CSS to prevent selection
-        img.style.userSelect = 'none';
-        img.style.webkitUserSelect = 'none';
-        img.style.msUserSelect = 'none';
-        
-        // Add a transparent overlay to make it harder to screenshot or inspect
-        const parent = img.parentElement;
-        parent.style.position = 'relative';
-        
-        const overlay = document.createElement('div');
-        overlay.className = 'image-protection-overlay';
-        overlay.style.position = 'absolute';
-        overlay.style.top = '0';
-        overlay.style.left = '0';
-        overlay.style.width = '100%';
-        overlay.style.height = '100%';
-        overlay.style.zIndex = '1';
-        overlay.style.pointerEvents = 'none';
-        
-        // Insert overlay after the image
-        parent.insertBefore(overlay, img.nextSibling);
-        
-        // Obfuscate the image URL
-        if (img.src) {
-            // Store the original source
-            img.setAttribute('data-original-src', img.src);
-            
-            // Create a blob URL to make it harder to get the original URL
-            fetch(img.src)
-                .then(response => response.blob())
-                .then(blob => {
-                    const blobUrl = URL.createObjectURL(blob);
-                    img.src = blobUrl;
-                })
-                .catch(error => {
-                    console.error('Error creating blob URL:', error);
-                });
-        }
-    });
-}
-
-/**
- * Protects gallery images from being copied or dragged
+ * Protegge le immagini della galleria da copia e trascinamento
  */
 function protectGalleryImages() {
     const galleryItems = document.querySelectorAll('.gallery-item img, .lightbox-img');
     
     galleryItems.forEach(img => {
-        // Prevent right-click
+        // Previeni click destro
         img.addEventListener('contextmenu', function(e) {
             e.preventDefault();
             return false;
         });
         
-        // Prevent drag
+        // Previeni trascinamento
         img.addEventListener('dragstart', function(e) {
             e.preventDefault();
             return false;
         });
         
-        // Add CSS to prevent selection
+        // Aggiungi CSS per prevenire la selezione SOLO per le immagini
         img.style.userSelect = 'none';
         img.style.webkitUserSelect = 'none';
         img.style.msUserSelect = 'none';
+        img.style.pointerEvents = 'none';
     });
     
-    // Add protection to lightbox images when they're loaded
+    // Protezione per le immagini lightbox quando vengono caricate
     const lightbox = document.querySelector('.lightbox');
     if (lightbox) {
         const lightboxImg = lightbox.querySelector('.lightbox-img');
         if (lightboxImg) {
-            // Prevent right-click
+            // Previeni click destro
             lightboxImg.addEventListener('contextmenu', function(e) {
                 e.preventDefault();
                 return false;
             });
             
-            // Prevent drag
+            // Previeni trascinamento
             lightboxImg.addEventListener('dragstart', function(e) {
                 e.preventDefault();
                 return false;
@@ -119,10 +57,11 @@ function protectGalleryImages() {
         }
     }
     
-    // Add CSS to disable saving images with keyboard shortcuts
+    // Aggiungi CSS per disabilitare il salvataggio delle immagini con scorciatoie da tastiera
+    // MA PERMETTI LA SELEZIONE DEL TESTO
     const style = document.createElement('style');
     style.textContent = `
-        .gallery-item img, .lightbox-img, .testimonial-image {
+        .gallery-item img, .lightbox-img {
             -webkit-touch-callout: none;
             -webkit-user-select: none;
             -khtml-user-select: none;
@@ -132,12 +71,12 @@ function protectGalleryImages() {
             pointer-events: none;
         }
         
-        .gallery-item, .testimonial-card {
+        .gallery-item {
             position: relative;
             overflow: hidden;
         }
         
-        .gallery-item::after, .testimonial-image::after {
+        .gallery-item::after {
             content: '';
             position: absolute;
             top: 0;
@@ -152,12 +91,13 @@ function protectGalleryImages() {
 }
 
 /**
- * Adds global anti-scraping protection to the entire website
+ * Aggiunge protezione anti-scraping al sito web ma consente la selezione del testo
  */
 function addGlobalProtection() {
-    // Prevent keyboard shortcuts for saving content
+    // Previeni le scorciatoie da tastiera per salvare i contenuti
     document.addEventListener('keydown', function(e) {
-        // Prevent Ctrl+S, Ctrl+P, Ctrl+Shift+I
+        // Previeni solo Ctrl+S, Ctrl+P, Ctrl+Shift+I
+        // NON disabilita altre scorciatoie come copia/incolla
         if ((e.ctrlKey && e.key === 's') || 
             (e.ctrlKey && e.key === 'p') || 
             (e.ctrlKey && e.shiftKey && e.key === 'i')) {
@@ -166,10 +106,10 @@ function addGlobalProtection() {
         }
     });
     
-    // Disable text selection on the entire page
-    document.body.style.userSelect = 'none';
+    // NON disabilitare la selezione del testo sull'intera pagina
+    // document.body.style.userSelect = 'none'; <-- RIMOSSO
     
-    // Add invisible watermark to the page
+    // Aggiungi filigrana invisibile alla pagina
     const watermark = document.createElement('div');
     watermark.style.position = 'fixed';
     watermark.style.top = '0';
@@ -182,7 +122,7 @@ function addGlobalProtection() {
     watermark.style.background = `url('data:text/plain;charset=utf-8,${encodeURIComponent("PoshWash ODI © " + new Date().getFullYear())}') repeat`;
     document.body.appendChild(watermark);
     
-    // Detect and block headless browsers and automation tools
+    // Rileva e blocca i browser headless e gli strumenti di automazione
     if (navigator.webdriver || 
         navigator.userAgent.toLowerCase().includes('headless') ||
         /PhantomJS|SlimerJS|CasperJS/.test(navigator.userAgent)) {
