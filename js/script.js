@@ -326,7 +326,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             
             const formData = new FormData(contactForm);
-            const mailtoLink = `mailto:Kristjansokoli84@gmail.com?subject=${encodeURIComponent(formData.get('subject'))}&body=${encodeURIComponent('Name: ' + formData.get('name') + '\n\n' + formData.get('message'))}`;
+            const mailtoLink = `mailto:kristiansokoli84@gmail.com?subject=${encodeURIComponent(formData.get('subject'))}&body=${encodeURIComponent('Name: ' + formData.get('name') + '\n\n' + formData.get('message'))}`;
             
             window.location.href = mailtoLink;
             
